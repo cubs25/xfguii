@@ -1,0 +1,619 @@
+@import url('https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,600;1,600&family=Press+Start+2P&family=Roboto+Condensed:wght@400;700&family=Syne+Mono&display=swap');
+
+.x {
+    font-family: 'Kanit', sans-serif;
+    font-family: 'Press Start 2P', cursive;
+    font-family: 'Roboto Condensed', sans-serif;
+    font-family: 'Syne Mono', monospace;
+}
+
+
+ 
+/* -------------------------------- 
+
+Primary style
+
+-------------------------------- */
+html * {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+*,
+*:after,
+*:before {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #ffffff;
+    /* Día */
+    color: #000000;
+    /* Día */
+    transition: all 0.3s ease-in-out;
+    font-family: 'Roboto Condensed', sans-serif;
+    place-items: center;
+    font-size: 18px;
+}
+
+
+body.night {
+    background-color: #000000;
+    /* Noche */
+    color: #f2f2f2;
+    /* Noche */
+}
+
+a {
+    color: #fff;
+    text-decoration: none;
+}
+
+img {
+    max-width: 100%;
+}
+
+
+
+h1 {
+    font-family: 'Kanit', sans-serif;
+    font-size: 32px;
+}
+
+
+
+
+h2 {
+    font-family: 'Syne Mono', monospace;
+    font-size: 26px;
+    color: #000000;
+}
+
+h3 {
+    font-family: 'Press Start 2P', cursive;
+    font-size: 12px;
+    color: #000000;
+    margin-top: 8px;
+}
+
+
+body.night h2 {
+    color: #ffffff;
+}
+
+body.night h3 {
+    color: #ffffff;
+}
+
+
+p {
+    font-family: 'Syne Mono', monospace;
+    font-size: 12px;
+    color: #000000;
+}
+
+
+body.night p {
+    color: #ccc;
+}
+
+li a {
+    color: #000000;
+}
+
+body.night  a {
+    color: #fff;
+}
+.night{
+  background-color: #222;
+  color: #fff;
+}
+
+#toggle-mode-btn {
+        border: none;
+        padding: 10px;
+        border-radius: 5px;
+        cursor: pointer;
+        background-color: transparent;
+      }
+
+
+
+.fa-moon:before {
+    content: "\f186";
+  color: #ccc;
+
+}
+
+/* -------------------------------- 
+
+Modules - reusable parts of our design
+
+-------------------------------- */
+.cd-container {
+    /* this class is used to give a max-width to the element it is applied to, and center it horizontally when it reaches that max-width */
+    width: 90%;
+    max-width: 1170px;
+    margin: 0 auto;
+}
+
+.cd-container::after {
+    /* clearfix */
+    content: '';
+    display: table;
+    clear: both;
+}
+
+/* -------------------------------- 
+
+Main components 
+
+-------------------------------- */
+header {
+    position: relative;
+    height: 12px;
+    text-align: center;
+    margin-bottom: 12px;
+    padding-top: 12px;
+}
+
+header #cd-logo {
+    margin-bottom: 1em;
+}
+
+header h1 {
+    font-size: 20px;
+    font-size: 1.25rem;
+}
+
+@media only screen and (min-width: 768px) {
+    header {
+        margin-bottom: 22px;
+    }
+}
+
+@media only screen and (min-width: 1170px) {
+    header {
+        padding-top: 20px;
+        height: 172px;
+    }
+
+    header #cd-logo {
+        position: absolute;
+        top: 40px;
+        left: 5%;
+    }
+
+    header h1 {
+        font-size: 40px;
+        font-size: 2.5rem;
+        font-weight: 300;
+    }
+}
+
+@media only screen and (max-width: 1170px) {
+    header {
+        display: none;
+    }
+}
+
+#cd-nav ul {
+    /* mobile first */
+    position: fixed;
+    width: 90%;
+    max-width: 200px;
+    right: 5%;
+    bottom: 20px;
+    background: black;
+    visibility: hidden;
+    /* remove overflow:hidden if you want to create a drop-down menu - but then remember to fix/eliminate the list items animation */
+    overflow: hidden;
+    z-index: 1;
+    /* Force Hardware Acceleration in WebKit */
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    -webkit-transform: scale(0);
+    -moz-transform: scale(0);
+    -ms-transform: scale(0);
+    -o-transform: scale(0);
+    transform: scale(0);
+    -webkit-transform-origin: 100% 100%;
+    -moz-transform-origin: 100% 100%;
+    -ms-transform-origin: 100% 100%;
+    -o-transform-origin: 100% 100%;
+    transform-origin: 100% 100%;
+    -webkit-transition: -webkit-transform 0.3s, visibility 0s 0.3s;
+    -moz-transition: -moz-transform 0.3s, visibility 0s 0.3s;
+    transition: transform 0.3s, visibility 0s 0.3s;
+}
+
+#cd-nav ul li {
+    /* Force Hardware Acceleration in WebKit */
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+}
+
+#cd-nav ul.is-visible {
+    visibility: visible;
+    -webkit-transform: scale(1);
+    -moz-transform: scale(1);
+    -ms-transform: scale(1);
+    -o-transform: scale(1);
+    transform: scale(1);
+    -webkit-transition: -webkit-transform 0.3s, visibility 0s 0s;
+    -moz-transition: -moz-transform 0.3s, visibility 0s 0s;
+    transition: transform 0.3s, visibility 0s 0s;
+}
+
+#cd-nav ul.is-visible li:nth-child(1) {
+    /* list items animation */
+    -webkit-animation: cd-slide-in 0.2s;
+    -moz-animation: cd-slide-in 0.2s;
+    animation: cd-slide-in 0.2s;
+}
+
+#cd-nav ul.is-visible li:nth-child(2) {
+    -webkit-animation: cd-slide-in 0.3s;
+    -moz-animation: cd-slide-in 0.3s;
+    animation: cd-slide-in 0.3s;
+}
+
+#cd-nav ul.is-visible li:nth-child(3) {
+    -webkit-animation: cd-slide-in 0.4s;
+    -moz-animation: cd-slide-in 0.4s;
+    animation: cd-slide-in 0.4s;
+}
+
+#cd-nav ul.is-visible li:nth-child(4) {
+    -webkit-animation: cd-slide-in 0.5s;
+    -moz-animation: cd-slide-in 0.5s;
+    animation: cd-slide-in 0.5s;
+}
+
+#cd-nav ul.is-visible li:nth-child(5) {
+    -webkit-animation: cd-slide-in 0.6s;
+    -moz-animation: cd-slide-in 0.6s;
+    animation: cd-slide-in 0.6s;
+}
+
+#cd-nav li a {
+    display: block;
+    padding: 1.6em;
+    border-bottom: 1px solid #ccc;
+    font-size: 16px;
+    font-family: 'Syne Mono', monospace;
+    color: #fff;
+}
+
+li.active a {
+    background-color: #000;
+    color: #fff !important;
+    cursor: none;
+}
+
+
+ul li.glitch {
+    background-color: #000;
+}
+
+
+
+
+#cd-nav li a:hover {
+    color: #ccc;
+}
+
+#cd-nav li:last-child a {
+    border-bottom: none;
+}
+
+@media only screen and (min-width: 1170px) {
+    #cd-nav ul {
+        /* the navigation moves to the top */
+        position: absolute;
+        width: auto;
+        max-width: none;
+        bottom: auto;
+        top: 36px;
+        background: transparent;
+        visibility: visible;
+        box-shadow: none;
+        -webkit-transform: scale(1);
+        -moz-transform: scale(1);
+        -ms-transform: scale(1);
+        -o-transform: scale(1);
+        transform: scale(1);
+        -webkit-transition: all 0s;
+        -moz-transition: all 0s;
+        transition: all 0s;
+    }
+
+    #cd-nav li {
+        display: inline-block;
+    }
+
+    #cd-nav li a {
+        opacity: 1;
+        padding: .2em;
+        margin-left: 1.2em;
+        border-bottom: none;
+        color: #000000;
+        font-size: 16px;
+    }
+
+    body.night #cd-nav li a {
+        opacity: 1;
+        padding: .2em;
+        margin-left: 1.2em;
+        border-bottom: none;
+        color: #fff;
+        font-size: 16px;
+    }
+
+
+    #cd-nav li a:hover {
+        color: #444;
+    }
+
+    #cd-nav.is-fixed ul {
+        /* when the user scrolls down, the navigation moves to the bottom right in Fixed position - as on touch devices */
+        position: fixed;
+        width: 90%;
+        max-width: 400px;
+        bottom: 20px;
+        top: auto;
+        background: black;
+        visibility: hidden;
+        -webkit-transform: scale(0);
+        -moz-transform: scale(0);
+        -ms-transform: scale(0);
+        -o-transform: scale(0);
+        transform: scale(0);
+    }
+
+    #cd-nav.is-fixed ul li {
+        display: block;
+    }
+
+    #cd-nav.is-fixed ul li a {
+        color: #fff;
+        padding: 1.6em;
+        margin-left: 0;
+        border-bottom: 1px solid #eff2f6;
+    }
+
+
+    #cd-nav ul.has-transitions {
+        /* this class is used to bring back transitions when the navigation moves at the bottom right */
+        -webkit-transition: -webkit-transform 0.3s, visibility 0s 0.3s;
+        -moz-transition: -moz-transform 0.3s, visibility 0s 0.3s;
+        transition: transform 0.3s, visibility 0s 0.3s;
+    }
+
+    #cd-nav ul.is-visible {
+        /* this class is used to bring back the navigation animation - as on touch devices */
+        visibility: visible;
+        -webkit-transform: scale(1);
+        -moz-transform: scale(1);
+        -ms-transform: scale(1);
+        -o-transform: scale(1);
+        transform: scale(1);
+        -webkit-transition: -webkit-transform 0.3s, visibility 0s 0s;
+        -moz-transition: -moz-transform 0.3s, visibility 0s 0s;
+        transition: transform 0.3s, visibility 0s 0s;
+    }
+
+    #cd-nav ul.is-hidden {
+        /* this class is used to animate the scale down the navigation when the user scrolls down with the navigation still open */
+        -webkit-transform: scale(0);
+        -moz-transform: scale(0);
+        -ms-transform: scale(0);
+        -o-transform: scale(0);
+        transform: scale(0);
+        -webkit-transition: -webkit-transform 0.3s;
+        -moz-transition: -moz-transform 0.3s;
+        transition: transform 0.3s;
+    }
+}
+
+.cd-nav-trigger {
+    position: fixed;
+    bottom: 20px;
+    right: 5%;
+    width: 44px;
+    height: 44px;
+    /* image replacement */
+    overflow: hidden;
+    text-indent: 100%;
+    white-space: nowrap;
+    z-index: 2;
+    background: #ffffff;
+}
+
+.cd-nav-trigger span {
+    /* the span element is used to create the menu icon */
+    position: absolute;
+    display: block;
+    width: 20px;
+    height: 5px;
+    background: #000000;
+    top: 50%;
+    margin-top: -1px;
+    left: 50%;
+    margin-left: -10px;
+    -webkit-transition: background 0.3s;
+    -moz-transition: background 0.3s;
+    transition: background 0.3s;
+}
+
+.cd-nav-trigger span::before,
+.cd-nav-trigger span::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    background: inherit;
+    width: 100%;
+    height: 100%;
+    /* Force Hardware Acceleration in WebKit */
+    -webkit-transform: translateZ(0);
+    -moz-transform: translateZ(0);
+    -ms-transform: translateZ(0);
+    -o-transform: translateZ(0);
+    transform: translateZ(0);
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    -webkit-transition: -webkit-transform 0.3s, background 0s;
+    -moz-transition: -moz-transform 0.3s, background 0s;
+    transition: transform 0.3s, background 0s;
+}
+
+.cd-nav-trigger span::before {
+    top: -6px;
+    -webkit-transform: rotate(0);
+    -moz-transform: rotate(0);
+    -ms-transform: rotate(0);
+    -o-transform: rotate(0);
+    transform: rotate(0);
+}
+
+.cd-nav-trigger span::after {
+    bottom: -6px;
+    -webkit-transform: rotate(0);
+    -moz-transform: rotate(0);
+    -ms-transform: rotate(0);
+    -o-transform: rotate(0);
+    transform: rotate(0);
+}
+
+.cd-nav-trigger.menu-is-open {
+    box-shadow: none;
+}
+
+.cd-nav-trigger.menu-is-open span {
+    background: rgba(0, 0, 0, 0);
+
+}
+
+.cd-nav-trigger.menu-is-open span::before,
+.cd-nav-trigger.menu-is-open span::after {
+    background: #000000;
+}
+
+.cd-nav-trigger.menu-is-open span::before {
+    top: 0;
+    -webkit-transform: rotate(135deg);
+    -moz-transform: rotate(135deg);
+    -ms-transform: rotate(135deg);
+    -o-transform: rotate(135deg);
+    transform: rotate(135deg);
+}
+
+.cd-nav-trigger.menu-is-open span::after {
+    bottom: 0;
+    -webkit-transform: rotate(225deg);
+    -moz-transform: rotate(225deg);
+    -ms-transform: rotate(225deg);
+    -o-transform: rotate(225deg);
+    transform: rotate(225deg);
+}
+
+@media only screen and (min-width: 1170px) {
+    .cd-nav-trigger {
+        /* the the menu triger is hidden by default on desktop devices */
+        visibility: hidden;
+        -webkit-transform: scale(0);
+        -moz-transform: scale(0);
+        -ms-transform: scale(0);
+        -o-transform: scale(0);
+        transform: scale(0);
+        -webkit-transition: -webkit-transform 0.3s, visibility 0s 0.3s;
+        -moz-transition: -moz-transform 0.3s, visibility 0s 0.3s;
+        transition: transform 0.3s, visibility 0s 0.3s;
+    }
+
+    .is-fixed .cd-nav-trigger {
+        visibility: visible;
+        -webkit-transition: all 0s;
+        -moz-transition: all 0s;
+        transition: all 0s;
+        -webkit-transform: scale(1);
+        -moz-transform: scale(1);
+        -ms-transform: scale(1);
+        -o-transform: scale(1);
+        transform: scale(1);
+        -webkit-animation: cd-bounce-in 0.3s linear;
+        -moz-animation: cd-bounce-in 0.3s linear;
+        animation: cd-bounce-in 0.3s linear;
+    }
+}
+
+
+
+
+
+/* HOME */
+
+#cd-gallery-items-h li {
+    margin-bottom: 0;
+}
+
+#cd-gallery-items-h li img {
+    width: 100%;
+    display: block;
+}
+
+#cd-gallery-items li .glitch {
+    background-color: black;
+}
+
+@media only screen and (min-width: 768px) {
+    #cd-gallery-items-h li {
+        width: 100%;
+        float: left;
+
+    }
+
+    #cd-gallery-items-h li:nth-child(2n) {
+        margin-right: 0;
+    }
+
+    #cd-gallery-items li .glitch {
+        background-color: black;
+    }
+}
+
+@media only screen and (min-width: 1170px) {
+    #cd-gallery-items-h li {
+        width: 50%;
+        float: left;
+    }
+
+
+
+}
+
+.maint a{
+    color: #000;
+    font-size: 12px;
+    font-family: 'Syne Mono', monospace;
+}
+
+.maint a:hover{
+    color: #ccc;
+    font-size: 12px;
+    font-family: 'Syne Mono', monospace;
+}
+
+.maint a.night{
+    color: #fff;
+    font-size: 12px;
+    font-family: 'Syne Mono', monospace;
+}
+
+.maint a.night:hover{
+    color: #ccc;
+    font-size: 12px;
+    font-family: 'Syne Mono', monospace;
+}

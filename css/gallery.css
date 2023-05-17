@@ -1,0 +1,66 @@
+* {
+    box-sizing: border-box;
+}
+
+
+
+.photo {
+    width: 100%;
+}
+
+.row {
+    display: flex;
+    max-width: 1500px;
+    padding: 0;
+    flex-wrap: wrap;
+
+    transition: all 0.25s ease-in-out;
+
+
+
+}
+
+.column {
+    flex: 25%;
+    max-width: 25%;
+    padding: 0;
+}
+
+.column img {
+    padding: 6px;
+    vertical-align: middle;
+}
+
+@media (max-width: 800px) {
+    .column {
+        flex: 50%;
+        max-width: 50%;
+    }
+}
+
+@media (max-width: 600px) {
+    .column {
+        flex: 100%;
+        max-width: 100%;
+    }
+}
+
+
+
+
+
+
+.button-zoom-g {
+    display: block;
+    width: 100%;
+    height: auto;
+    transition: transform 0.2s ease-out;
+    cursor: pointer;
+}
+
+.button-zoom-g:hover {
+    transform: scale(1.03);
+}
+
+
+
